@@ -6,9 +6,9 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 import logging
 
-API_TOKEN = os.getenv('7286514059:AAGXDUwTBauLXgj2BvepNlNZkRoLmCcB4z8')
+MY_BOT_TOKEN = os.getenv('7286514059:AAGXDUwTBauLXgj2BvepNlNZkRoLmCcB4z8')
 
-bot = Bot(token=API_TOKEN)
+bot = Bot(token=MY_BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
 logging.basicConfig(level=logging.INFO)
 
