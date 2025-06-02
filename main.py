@@ -1,4 +1,3 @@
-
 import os
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
@@ -50,7 +49,7 @@ async def set_to(message: types.Message, state: FSMContext):
 @dp.message_handler(state=Form.date)
 async def set_date(message: types.Message, state: FSMContext):
     await state.update_data(date=message.text)
-    await message.answer("Баасы канча? (же "жок")")
+    await message.answer('Баасы канча? (же "жок")')
     await Form.next()
 
 @dp.message_handler(state=Form.price)
@@ -70,7 +69,10 @@ async def set_priority(call: types.CallbackQuery, state: FSMContext):
     priority = call.data
     await call.message.delete()
 
-    text = f"🚘 {data['role']} из {data['from_city']} в {data['to_city']}\n📅 {data['date']}\n💸 {data['price']}\n👤 {call.from_user.mention}"
+    text = (f"🚘 {data['role']} из {data['from_city']} в {data['to_city']}\n"
+            f"📅 {data['date']}\n"
+            f"💸 {data['price']}\n"
+            f"👤 {call.from_user.mention}")
 
     if priority == 'paid':
         text = "💰 *ПРИОРИТЕТТҮҮ ЖАРЫЯ!*\n" + text
